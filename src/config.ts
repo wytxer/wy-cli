@@ -9,7 +9,7 @@ export const rootFolder = path.join(__dirname, '..')
 export const templateRootFolder = path.join(os.homedir(), '.wy')
 // 脚手架模板列表
 export const templates = [{
-  name: '后台管理系统（Vue.js 2.x + Vue Router + Vuex + Ant Design Vue）',
+  name: '中后台前端脚手架（Vue.js 2.x + Vue Router + Vuex + Ant Design Vue）',
   value: 'template-vue2-manage'
 }, {
   name: '组件（Vue.js 2.x + Vue Router + Vuex）',
@@ -18,7 +18,7 @@ export const templates = [{
   name: '示例（Vue.js 2.x + Vue Router + Vuex）',
   value: 'template-vue2-demo'
 }, {
-  name: '后台（Node.js + Egg.js + Sequelize）',
+  name: '后台脚手架（Node.js + Egg.js + Sequelize）',
   value: 'template-node-egg'
 }, {
   name: '命令行工具（Node.js + TypeScript + Commander）',
