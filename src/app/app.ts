@@ -14,7 +14,7 @@ export interface App {
 
 export default (): App => {
   const root = process.cwd()
-  const config = require(`${root}/build/project.config.js`)
+  const config = require(`${root}/config/project.config.js`)
   const app = express()
 
   // 将当前的 cwd() 地址内置进去
