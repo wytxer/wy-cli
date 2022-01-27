@@ -6,7 +6,7 @@ import * as fs from 'fs-extra'
 import * as shell from 'shelljs'
 import * as ora from 'ora'
 import * as archiver from 'archiver'
-import { log } from './utils'
+import { log, exec } from './utils'
 
 export default async (cmd: Command): Promise<any> => {
   shell.config.silent = true
@@ -18,7 +18,7 @@ export default async (cmd: Command): Promise<any> => {
     process.exit()
   }
 
-  const { build } = cmd as any
+  const { build, clean } = cmd as any
   const root = process.cwd()
   // 检查 tar 目录是否存在
   const tarFolder = `${root}/tar`
@@ -46,25 +46,23 @@ export default async (cmd: Command): Promise<any> => {
     fs.mkdirSync(cacheTarFolder)
   }
 
-  shell.cd(root)
-
   // 打包 dist
   if (build) {
     spinning.text = '开始打包 dist，请稍等'
-    await shell.exec('yarn run build')
+    await exec('yarn build')
   }
 
   // 复制文件过去
-  const files = ['build', 'server', 'mock', 'dist', 'package.json']
+  const files = ['config', 'server', 'mock', 'dist', 'package.json', '.env', '.env.production']
   shell.cp('-R', files, cacheTarFolder)
 
   // 安装依赖
   spinning.text = '开始安装依赖'
   shell.cd(cacheTarFolder)
   // 如果维护了 nodejs 依赖的包，取出来替换掉 dependencies
-  if (pkg.nodeApp) {
-    pkg.dependencies = pkg.nodeApp
-    delete pkg.nodeApp
+  if (pkg.serverDependencies) {
+    pkg.dependencies = pkg.serverDependencies
+    delete pkg.serverDependencies
     try {
       fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2))
     } catch (error) {
@@ -72,7 +70,7 @@ export default async (cmd: Command): Promise<any> => {
       process.exit(1)
     }
   }
-  await shell.exec('yarn install --production')
+  await exec('yarn install --production')
 
   // 打包
   shell.cd(tarFolder)
@@ -81,8 +79,10 @@ export default async (cmd: Command): Promise<any> => {
   const archive = archiver('zip')
 
   output.on('close', () => {
-    // 打包完成，删除包目录
-    shell.rm('-rf', tarFolderName)
+    // 打包完成，删除缓存目录
+    if (clean === 'y') {
+      shell.rm('-rf', cacheTarFolder)
+    }
 
     spinning.text = '打包完成'
     spinning.stop()
