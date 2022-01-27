@@ -9,3 +9,4 @@ export declare const defaultProjectTips: (filename?: string) => void;
 export declare const checkFolder: (filePath: string, fn: () => void) => boolean;
 export declare const fileDisplay: (filePath: string, handleFile: (file: string) => void, handleFolder: (folder: string) => string) => void;
 export declare const initGit: (templateName: string, projectFolder: string, fn: () => void) => Promise<void>;
+export declare const exec: (cmd: string, options?: {}) => Promise<any>;
