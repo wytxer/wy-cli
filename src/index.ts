@@ -34,6 +34,7 @@ program
   .command('tar')
   .description('打包')
   .option('-b, --build', '重新打包')
+  .option('-c, --clean <clean>', '打包完成后是否删除缓存目录', 'y')
   .action(tar)
 
 program
