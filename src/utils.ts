@@ -139,7 +139,7 @@ export const initGit = async (templateName: string, projectFolder: string, fn: (
   }
 
   // git 仓库地址
-  const gitRemote = `git@github.com:wytxer/${templateName}.git`
+  const gitRemote = `https://github.com/wytxer/${templateName}.git`
   // 本地缓存地址
   const localFolder = path.join(templateRootFolder, templateName)
   // 如果本地不存在模板，重新 clone 下来

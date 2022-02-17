@@ -75,7 +75,7 @@ export default (folder: string): void => {
                     }
                     return s
                   })
-                // 删除因为替换而多出来的空行
+                  // 删除因为替换而多出来的空行
                   .filter(s => !s.includes('$<br>$'))
                   .join('\r')
                 fs.writeFileSync(projectFolder + file, content)
