@@ -8,13 +8,6 @@ import * as ora from 'ora'
 import * as shell from 'shelljs'
 import { templateRootFolder } from './config'
 
-interface ExecException extends Error {
-  cmd?: string;
-  killed?: boolean;
-  code?: number;
-  signal?: NodeJS.Signals;
-}
-
 // 统一的日志输出
 export const log = {
   info: (text: string, br = true): void => {
@@ -179,7 +172,7 @@ export const initGit = async (templateName: string, projectFolder: string, fn: (
 // 异步的 exec，将子进程转成同步进程
 export const exec = (cmd: string, options = {}): Promise<any> => {
   return new Promise((resolve, reject) => {
-    const stdout = shell.exec(cmd, options, (error: ExecException | null, stdout: string, stderr: string) => {
+    const stdout = shell.exec(cmd, options, (error: number | null, stdout: string, stderr: string) => {
       if (error) {
         reject(error)
       }

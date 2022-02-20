@@ -20,7 +20,7 @@ npm i @wytxer/wy-cli -g
 ◯ 组件（Vue.js 2.x + Vue Router + Vuex）
 ◯ 示例（Vue.js 2.x + Vue Router + Vuex）
 ◯ 后台（Node.js + Egg.js + Sequelize）
-◯ 命令行工具（Node.js + TypeScript + Commander）
+◯ 命令行脚手架（Node.js + TypeScript + Commander）
 ```
 
 

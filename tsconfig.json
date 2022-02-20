@@ -13,8 +13,7 @@
     "experimentalDecorators": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "types": ["node"]
+    "declaration": true
   },
   "include": [
     ".eslintrc.js",
