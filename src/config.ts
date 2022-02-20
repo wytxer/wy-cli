@@ -21,7 +21,7 @@ export const templates = [{
   name: '后台脚手架（Node.js + Egg.js + Sequelize）',
   value: 'template-node-egg'
 }, {
-  name: '命令行工具（Node.js + TypeScript + Commander）',
+  name: '命令行脚手架（Node.js + TypeScript + Commander）',
   value: 'template-node-cli'
 }]
 
