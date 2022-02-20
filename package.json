@@ -56,8 +56,12 @@
   "license": "MIT",
   "homepage": "https://github.com/wytxer/wy-cli/#readme",
   "keywords": [
-    "nodejs",
+    "node",
     "cli",
+    "node cli",
+    "ts",
+    "typescript",
+    "wy",
     "wy init",
     "wy app"
   ],
