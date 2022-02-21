@@ -18,7 +18,7 @@ export const templates = [{
   name: '示例（Vue.js 2.x + Vue Router + Vuex）',
   value: 'template-vue2-demo'
 }, {
-  name: '后台脚手架（Node.js + Egg.js + Sequelize）',
+  name: '后端脚手架（Node.js + Egg.js + Sequelize）',
   value: 'template-node-egg'
 }, {
   name: '命令行脚手架（Node.js + TypeScript + Commander）',
