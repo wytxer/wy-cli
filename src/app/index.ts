@@ -4,12 +4,13 @@ import * as path from 'path'
 import * as apiMocker from 'mocker-api'
 import * as history from 'connect-history-api-fallback'
 import * as dotenv from 'dotenv'
+import * as dotenvExpand from 'dotenv-expand'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 import getApp from './app'
 import { log } from '../utils'
 
 // 导入环境变量
-dotenv.config()
+dotenvExpand.expand(dotenv.config())
 
 // todo：日志服务、多域名代理支持
 
@@ -37,6 +38,7 @@ export default (): void => {
 
   // 启动代理服务
   Object.entries(proxy).forEach(([baseUrl, options]) => {
+    console.log('baseUrl', baseUrl)
     app.use(baseUrl, createProxyMiddleware(options))
   })
 
