@@ -38,7 +38,6 @@ export default (): void => {
 
   // 启动代理服务
   Object.entries(proxy).forEach(([baseUrl, options]) => {
-    console.log('baseUrl', baseUrl)
     app.use(baseUrl, createProxyMiddleware(options))
   })
 
