@@ -10,6 +10,7 @@ import getApp from './app'
 import { log } from '../utils'
 
 // 导入环境变量
+dotenvExpand.expand(dotenv.config({ path: path.join(process.cwd(), '.env.production') }))
 dotenvExpand.expand(dotenv.config())
 
 // todo：日志服务、多域名代理支持
