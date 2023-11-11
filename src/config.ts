@@ -18,7 +18,7 @@ export const templates = [{
   name: '后端脚手架独立版（TypeScript + Nestjs + Sequelize）',
   value: 'template-nestjs-standalone'
 }, {
-  name: '微信小程序脚手架（uniapp + Vue.js 2.x',
+  name: '微信小程序脚手架（uniapp + Vue.js 2.x）',
   value: 'template-vue2-uniapp'
 }, {
   name: '组件（Vue.js 2.x + Vue Router + Vuex）',
